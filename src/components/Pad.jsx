@@ -1,8 +1,15 @@
-import pads from "../constants/pads"
+const Pad = ({color, on}) => {
 
-const Pad = ({color}) => {
   return (
-    <button style={{backgroundColor: color}}></button>
+
+    /**
+     * Challenge part 3:
+     * Our buttons got turned off by default! Update the code
+     * so if the button is "on", it has the className of "on".
+     */
+
+
+    <button style={{backgroundColor: color}} className={on ? "on" : ""}></button>
   )
 }
 
