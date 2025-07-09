@@ -1,5 +1,5 @@
 import { useState } from "react";
-import padsData from "./pads";
+import padsData from "./constants/pads";
 
 export default function App({ darkMode }) {
   const [pads, setPads] = useState(padsData);
