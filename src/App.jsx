@@ -1,20 +1,31 @@
-import { useState } from "react";
-import padsData from "./constants/pads";
+import React from "react"
+import padsData from "./constants/pads"
+import Pad from "./components/Pad"
 
-export default function App({ darkMode }) {
-  const [pads, setPads] = useState(padsData);
+export default function App() {
+    const [pads, setPads] = React.useState(padsData)
 
-  const styles = {
-    backgroundColor: darkMode ? "#222222" : "#cccccc",
-  };
+    const buttonElements = pads.map(pad => (
+        <Pad key={pad.id} color={pad.color}/>
+    ))
+    
+    /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Pad" and
+     *    replace the `button` above with our <Pad /> component
+     * 2. Pass the Pad component a prop called `color` with the
+     *    value of the same name from the `padsData` objects
+     * 3. In the Pad component, apply an inline style to the <button>
+     *    to set the backgroundColor of the button.
+     * 
+     * (We'll deal with the "on" property soon)
+     */
 
-  const buttonElements = pads.map((pad) => (
-    <button style={styles} key={pad.id}></button>
-  ));
-
-  return (
-    <main>
-      <div className="pad-container">{buttonElements}</div>
-    </main>
-  );
+    return (
+        <main>
+            <div className="pad-container">
+                {buttonElements}
+            </div>
+        </main>
+    )
 }
